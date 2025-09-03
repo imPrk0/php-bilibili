@@ -37,7 +37,7 @@ jobs:
       - name: Build
         run: pnpm doc:build
       - name: Add CNAME
-        run: echo "biliphp.dev" > docs/.vitepress/dist/CNAME
+        run: echo "biliphp.dev" > doc/.vitepress/dist/CNAME
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
