@@ -22,6 +22,16 @@ export default defineConfig({
                 text: 'API',
                 items: [
                     {
+                        text: '客户端',
+                        items: [
+                            { text: '介绍', link: '/client/' },
+                            { text: 'Web 客户端', link: '/client/web' },
+                            { text: 'PC 客户端', link: '/client/electron' },
+                            { text: '手机 APP', link: '/client/app' },
+                            { text: '云视听小电视', link: '/client/tv' }
+                        ]
+                    },
+                    {
                         text: '用户',
                         items: [
                             { text: '用户信息', link: '/user/information' }
@@ -37,6 +47,16 @@ export default defineConfig({
                 items: [
                     { text: '介绍', link: '/introduction' },
                     { text: '快速开始', link: '/get-started' }
+                ]
+            },
+            {
+                text: '客户端',
+                items: [
+                    { text: '介绍', link: '/client/' },
+                    { text: 'Web 客户端', link: '/client/web' },
+                    { text: 'PC 客户端', link: '/client/electron' },
+                    { text: '手机 APP', link: '/client/app' },
+                    { text: '云视听小电视', link: '/client/tv' }
                 ]
             },
             {
