@@ -1,0 +1,28 @@
+{
+    "name": "prk/php-bilibili",
+    "description": "哔哩哔哩弹幕网 PHP 封装类",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Prk\\PHPBilibili\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Prk\\PHPBilibili\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Prk",
+            "email": "code@imprk.me"
+        }
+    ],
+    "minimum-stability": "RC",
+    "require": {
+        "ext-curl": "*",
+        "php": "^8.0"
+    },
+    "require-dev": {}
+}

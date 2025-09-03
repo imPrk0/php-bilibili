@@ -1,0 +1,16 @@
+; Git
+/.gitignore export-ignore
+/.gitattributes export-ignore
+
+; Tests
+/tests export-ignore
+/my_test export-ignore
+/phpunit.xml export-ignore
+
+; GitHub
+/.github export-ignore
+
+; Documentation
+/doc export-ignore
+/package.json export-ignore
+/package-lock.json export-ignore
