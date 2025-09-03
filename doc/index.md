@@ -18,13 +18,15 @@ hero:
 
 features:
   - icon: 🚀
-    title: PHP 8.0+
-    link: 'https://www.com'
-    details: 因个人原因
+    title: 等等
+    link: 'https://biliphp.dev'
+    details: 等等
   - icon: 🔒
-    title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    title: 等等
+    link: 'https://biliphp.dev'
+    details: 等等
   - icon: 🔐
-    title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    title: 等等
+    link: 'https://biliphp.dev'
+    details: 等等
 ---

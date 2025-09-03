@@ -22,3 +22,7 @@ lerna-debug.log*
 .pnpm-debug.log*
 .next/
 .out/
+
+# VitePress
+.vitepress/cache/
+.vitepress/dist/

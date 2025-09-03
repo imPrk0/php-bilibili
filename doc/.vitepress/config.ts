@@ -49,7 +49,7 @@ export default defineConfig({
         ],
 
         socialLinks: [
-            { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+            { icon: 'github', link: 'https://github.com/imPrk0/php-bilibili' }
         ]
     }
 });
