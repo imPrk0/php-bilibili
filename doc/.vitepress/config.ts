@@ -76,8 +76,8 @@ export default defineConfig({
         search: {
             provider: 'algolia',
             options: {
-                appId: import.meta.env.VITE_ALGOLIA_APP_ID,
-                apiKey: import.meta.env.VITE_ALGOLIA_API_KEY,
+                appId: process.env.VP_ALGOLIA_APP_ID,
+                apiKey: process.env.VP_ALGOLIA_API_KEY,
                 indexName: 'php-bilibili',
                 askAi: {
                     assistantId: ''
