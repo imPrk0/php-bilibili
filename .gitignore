@@ -22,7 +22,21 @@ lerna-debug.log*
 .pnpm-debug.log*
 .next/
 .out/
+pnpm-global
 
 # VitePress
-.vitepress/cache/
-.vitepress/dist/
+doc/.vitepress/cache/
+doc/.vitepress/dist/
+
+# Logs
+*.log
+
+# Zips
+*.tgz
+
+# Temp
+.temp
+.vite_opt_cache
+temp
+examples-temp
+*.timestamp-*.mjs

@@ -34,6 +34,7 @@ export default defineConfig({
                     {
                         text: '用户',
                         items: [
+                            { text: '用户模型', link: '/user/model' },
                             { text: '用户信息', link: '/user/information' }
                         ]
                     }
@@ -46,7 +47,8 @@ export default defineConfig({
             {
                 items: [
                     { text: '介绍', link: '/introduction' },
-                    { text: '快速开始', link: '/get-started' }
+                    { text: '快速开始', link: '/get-started' },
+                    { text: '模型化', link: '/model' }
                 ]
             },
             {
@@ -62,6 +64,7 @@ export default defineConfig({
             {
                 text: '用户',
                 items: [
+                    { text: '用户模型', link: '/user/model' },
                     { text: '用户信息', link: '/user/information' }
                 ]
             },

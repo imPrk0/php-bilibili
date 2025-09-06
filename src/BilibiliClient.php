@@ -10,6 +10,7 @@ namespace Prk\PHPBilibili;
 
 use Prk\PHPBilibili\Common\{NetworkProxy, HttpResponse};
 use Prk\PHPBilibili\Exception\Http\{InvalidUrlException, RequestException};
+use Prk\PHPBilibili\Utils\WbiSign;
 
 /**
  * @property string | null $url 请求地址
@@ -18,6 +19,7 @@ use Prk\PHPBilibili\Exception\Http\{InvalidUrlException, RequestException};
  * @property integer $timeout 请求超时时间 (秒)，默认为 15
  * @property string $userAgent 用户浏览器 UA 用户代理
  * @property NetworkProxy $proxy 网络代理
+ * @property boolean $wbiSign 是否启用 Wbi 签名，默认为 true
  */
 final class BilibiliClient {
     public ?string $url = null;
@@ -26,6 +28,7 @@ final class BilibiliClient {
     public int $timeout = 15;
     public string $userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36 Edg/102.0.1245.39';
     public NetworkProxy $proxy;
+    public bool $wbiSign = true;
 
     public function __construct() {
         $this->proxy = new NetworkProxy();
@@ -35,12 +38,16 @@ final class BilibiliClient {
      * 发起 GET 请求
      * @author Prk<code@imprk.me>
      *
+     * @param array $params 请求参数
+     *
      * @return HttpResponse 响应对象
      * @throws InvalidUrlException 当 URL 为空时抛出
      * @throws RequestException 当请求失败时抛出
      */
-    public function get(): HttpResponse {
+    public function get(array $params = []): HttpResponse {
         if (empty($this->url)) throw new InvalidUrlException('URL 不能为空');
+
+        $query = $this->wbiSign ? array_merge($params, WbiSign::reQuery($params)) : $params;
 
         $ch = curl_init($this->url);
 
@@ -61,7 +68,7 @@ final class BilibiliClient {
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTPHEADER => $headers,
             CURLOPT_ENCODING => '',
-            CURLOPT_URL => $this->url,
+            CURLOPT_URL => $this->url . '?' . http_build_query($query),
             CURLOPT_USERAGENT => $this->userAgent,
             CURLOPT_TIMEOUT => $this->timeout,
             CURLOPT_AUTOREFERER => $this->referer,

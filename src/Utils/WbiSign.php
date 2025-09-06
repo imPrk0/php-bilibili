@@ -16,13 +16,13 @@ class WbiSign {
         36, 20, 34, 44, 52
     ];
 
-    public function reQuery(array $query): string {
-        $wbi_keys = $this->getWbiKeys();
-        return $this->encodeWbi($query, $wbi_keys['img_key'], $wbi_keys['sub_key']);
+    public static function reQuery(array $query): array {
+        $wbi_keys = self::getWbiKeys();
+        return self::encodeWbi($query, $wbi_keys['img_key'], $wbi_keys['sub_key']);
     }
 
-    protected function encodeWbi($params, $img_key, $sub_key): string {
-        $mixin_key = $this->getMixinKey($img_key . $sub_key);
+    protected static function encodeWbi($params, $img_key, $sub_key): array {
+        $mixin_key = self::getMixinKey($img_key . $sub_key);
         $curr_time = time();
         $chr_filter = "/[!'()*]/";
 
@@ -39,12 +39,16 @@ class WbiSign {
         $query = implode('&', $query);
         $wbi_sign = md5($query . $mixin_key);
 
-        return $query . '&w_rid=' . $wbi_sign;
+        return [
+            'wts' => $curr_time,
+            'w_rid' => $wbi_sign
+        ];
     }
 
-    protected function getWbiKeys(): array {
+    protected static function getWbiKeys(): array {
         $client = new BilibiliClient;
         $client->url = 'https://api.bilibili.com/x/web-interface/nav';
+        $client->wbiSign = false;
         $response = $client->get()->getArray();
 
         $img_url = $response['data']['wbi_img']['img_url'];
@@ -56,7 +60,7 @@ class WbiSign {
         ];
     }
 
-    protected function getMixinKey($orig): string {
+    protected static function getMixinKey($orig): string {
         $t = '';
         foreach (self::MIXIN_KEY_ENCODE_TAB as $n) $t .= $orig[$n];
         return substr($t, 0, 32);
