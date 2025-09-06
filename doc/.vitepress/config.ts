@@ -69,7 +69,20 @@ export default defineConfig({
         ],
 
         socialLinks: [
-            { icon: 'github', link: 'https://github.com/imPrk0/php-bilibili' }
-        ]
+            { icon: 'github', link: 'https://github.com/imPrk0/php-bilibili' },
+            { icon: 'telegram', link: '/telegram' }
+        ],
+
+        search: {
+            provider: 'algolia',
+            options: {
+                appId: import.meta.env.VITE_ALGOLIA_APP_ID,
+                apiKey: import.meta.env.VITE_ALGOLIA_API_KEY,
+                indexName: 'php-bilibili',
+                askAi: {
+                    assistantId: ''
+                }
+            }
+        }
     }
 });

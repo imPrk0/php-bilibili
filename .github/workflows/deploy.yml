@@ -36,6 +36,9 @@ jobs:
         run: pnpm i
       - name: Build
         run: pnpm doc:build
+        env:
+          VITE_ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          VITE_ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
       - name: Add CNAME
         run: echo "biliphp.dev" > doc/.vitepress/dist/CNAME
       - name: Upload artifact
