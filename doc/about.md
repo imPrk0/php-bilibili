@@ -7,8 +7,8 @@ const coreMembers = [
         name: 'Prk',
         title: '开发者',
         org: '项目核心',
-        orgLink: 'https://github.com/imPrk0',
-        desc: '1123',
+        orgLink: 'https://github.com/imPrk0/php-bilibili',
+        desc: 'Owner',
         links: [
             { icon: 'github', link: 'https://github.com/imPrk0' },
             { icon: 'x', link: 'https://x.com/imPrk_' },
