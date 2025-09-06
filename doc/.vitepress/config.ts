@@ -70,18 +70,20 @@ export default defineConfig({
 
         socialLinks: [
             { icon: 'github', link: 'https://github.com/imPrk0/php-bilibili' },
-            { icon: 'telegram', link: '/telegram' }
+            { icon: 'telegram', link: '/telegram.html' }
         ],
+
+        footer: {
+            message: 'Released under the MIT License.',
+            copyright: `Copyright © 2025-${(new Date()).getFullYear()} Prk All Rights Reserved.`
+        },
 
         search: {
             provider: 'algolia',
             options: {
                 appId: process.env.VP_ALGOLIA_APP_ID,
                 apiKey: process.env.VP_ALGOLIA_API_KEY,
-                indexName: 'php-bilibili',
-                askAi: {
-                    assistantId: ''
-                }
+                indexName: 'php-bilibili'
             }
         }
     }
