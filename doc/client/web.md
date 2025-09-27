@@ -1,6 +1,6 @@
 # Web 客户端 {#title}
 
-Web&nbsp;客户端使用场景为：
+::: details Web&nbsp;客户端使用场景
 
 |    场景     |                           地址                            |    场景     |                           地址                            |
 |:---------:|:-------------------------------------------------------:|:---------:|:-------------------------------------------------------:|
@@ -8,11 +8,14 @@ Web&nbsp;客户端使用场景为：
 |  哔哩哔哩漫画   |               https://manga.bilibili.com                |  哔哩哔哩会员购  |                https://show.bilibili.com                |
 |  哔哩哔哩游戏   | https://game.bilibili.com<br />_https://*.biligame.com_ |
 
+:::
 
-## 命名空间 {#namespace}
-
-Web&nbsp;客户端的命名空间如下：
 
 ```php
 use Prk\PHPBilibili\BilibiliClient;
 ```
+
+
+## 配置 {#configuration}
+
+客户端有一个配套的配置类，你可以配置（也可以完全不必配置）

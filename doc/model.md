@@ -7,7 +7,7 @@
 
 ::: tip 统一命名规范
 
-所有资产模型统一使用&nbsp;`id`&nbsp;作为资产主要&nbsp;ID&nbsp;名称，而非使用诸如&nbsp;`mid`&nbsp;/&nbsp;`uid`&nbsp;等名称。
+所有资产模型统一使用&nbsp;`id`&nbsp;作为资产主要&nbsp;ID&nbsp;名称，而非使用诸如&nbsp;`mid`&nbsp;/&nbsp;`uid`&nbsp;/&nbsp;`sid`&nbsp;等名称。
 
 与此同时，本库将规范一切命名设计，比如：
 

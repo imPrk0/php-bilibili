@@ -8,6 +8,8 @@
 import { defineConfig } from 'vitepress';
 
 export default defineConfig({
+    lang: 'zh-CN',
+
     title: 'PHP Bilibili',
     titleTemplate: ':title - PHP Bilibili',
     description: '优雅的 Bilibili PHP 封装类库。',
@@ -20,6 +22,7 @@ export default defineConfig({
             { text: '快速开始', link: '/get-started' },
             {
                 text: 'API',
+                activeMatch: '^/(client|user)/',
                 items: [
                     {
                         text: '客户端',
@@ -53,6 +56,7 @@ export default defineConfig({
             },
             {
                 text: '客户端',
+                collapsed: true,
                 items: [
                     { text: '介绍', link: '/client/' },
                     { text: 'Web 客户端', link: '/client/web' },
@@ -63,9 +67,17 @@ export default defineConfig({
             },
             {
                 text: '用户',
+                collapsed: true,
                 items: [
                     { text: '用户模型', link: '/user/model' },
-                    { text: '用户信息', link: '/user/information' }
+                    {
+                        text: '获取用户信息',
+                        collapsed: true,
+                        items: [
+                            { text: '模型化', link: '/user/information' },
+                            { text: '空间接口', link: '/user/space-info' }
+                        ]
+                    }
                 ]
             },
             { text: '关于我们', link: '/about' }
@@ -88,6 +100,13 @@ export default defineConfig({
                 apiKey: process.env.VP_ALGOLIA_API_KEY,
                 indexName: 'php-bilibili'
             }
+        }
+    },
+
+    markdown: {
+        theme: {
+            light: 'vitesse-light',
+            dark: 'vitesse-dark'
         }
     }
 });
