@@ -175,6 +175,14 @@ Wbi&nbsp;存储器需遵循&nbsp;`\Prk\PHPBilibili\Contracts\WbiStoreInterface`&
 - 清除&nbsp;Wbi&nbsp;Mixin&nbsp;Key:&nbsp;`fn clear(): void;`
   - 调用就清除存储的&nbsp;Wbi&nbsp;Mixin&nbsp;Key
 
+::: details 查看代码示例
+
+本示例为文件存储，也请根据实际情况适当调整为&nbsp;Redis&nbsp;或&nbsp;MySQL&nbsp;等存储。
+
+<<< ./web-examples/config-wbi.php
+
+:::
+
 
 ### 配置网络代理 {#network-proxy}
 

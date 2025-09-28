@@ -21,7 +21,6 @@ final class UserInfo {
     ) {}
 
     public function request(): UserInfoResponse {
-        $request = $this->client->request($this->request);
-        return new UserInfoResponse($request->getArray());
+        return new UserInfoResponse($this->client->request($this->request));
     }
 }

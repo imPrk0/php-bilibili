@@ -10,8 +10,7 @@ namespace Prk\PHPBilibili;
 
 use Prk\PHPBilibili\Common\{Config, NetworkProxy, HttpResponse, RequestInterface};
 use Prk\PHPBilibili\Exception\Http\{InvalidUrlException, RequestException};
-use Prk\PHPBilibili\Contracts\CookieStoreInterface;
-use Prk\PHPBilibili\Contracts\WbiStoreInterface;
+use Prk\PHPBilibili\Contracts\{CookieStoreInterface, WbiStoreInterface};
 use Prk\PHPBilibili\Helper\WbiSign;
 
 /**
@@ -32,6 +31,7 @@ final class BilibiliClient {
     protected ?CookieStoreInterface $cookieStore = null;
     protected ?WbiStoreInterface $wbiStore = null;
     protected ?NetworkProxy $proxy = null;
+    protected ?Config $config = null;
 
     /**
      * 构造器，处理配置
@@ -41,6 +41,8 @@ final class BilibiliClient {
      */
     public function __construct(?Config $config = null) {
         if (!empty($config)) {
+            $this->config = $config;
+
             $this->timeout = $config->getTimeout();
 
             $userAgent = $config->getUserAgent();
@@ -91,7 +93,7 @@ final class BilibiliClient {
         $query = $request->getQuery();
         if (!empty($query)) $url .= '?' . http_build_query(
             $request->wbiSign()
-                ? array_merge($query, WbiSign::reQuery($query))
+                ? array_merge($query, (new WbiSign($this->config))->encode($query))
                 : $query
         );
         unset($query);
@@ -108,7 +110,7 @@ final class BilibiliClient {
             'Cache-Control: max-age=0',
             'Content-Type: ' . (
                 is_string($body)
-                    ? 'application/json'
+                    ? 'application/json; charset=UTF-8'
                     : 'application/x-www-form-urlencoded; charset=UTF-8'
             ),
             'Referer: ' . $referrer
@@ -132,8 +134,9 @@ final class BilibiliClient {
 
         if (!empty($this->cookies)) curl_setopt($ch, CURLOPT_COOKIE, $this->cookies);
 
-//        $proxyOptions = $this->proxy->toCurlOption();
-//        if ($proxyOptions) curl_setopt_array($ch, $proxyOptions);
+        $proxyOptions = $this->proxy->toCurlOption();
+        if (!empty($proxyOptions)) curl_setopt_array($ch, $proxyOptions);
+        unset($proxyOptions);
 
         $response = curl_exec($ch);
         $error = curl_error($ch);

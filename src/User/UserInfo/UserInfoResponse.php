@@ -9,15 +9,18 @@ declare(strict_types=1);
 namespace Prk\PHPBilibili\User\UserInfo;
 
 use Prk\PHPBilibili\Enums\UserSex;
+use Prk\PHPBilibili\Common\HttpResponse;
 
 final class UserInfoResponse {
     /**
      * 构造器
      * @author Prk<code@imprk.me>
      *
-     * @param array $data 数据
+     * @param HttpResponse $response 响应
      */
-    public function __construct(array $data = []) {
+    public function __construct(HttpResponse $response) {
+        $data = $response->getArray();
+
         if (0 != $data['code'] || '0' != $data['message']) {
             echo json_encode($data) . PHP_EOL;
             exit('throw'); // TODO 创建不同的错误类型

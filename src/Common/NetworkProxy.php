@@ -114,10 +114,10 @@ final class NetworkProxy {
      * 将当前代理配置转换为 cURL 选项
      * @author Prk<code@imprk.me>
      *
-     * @return array cURL 选项数组
+     * @return array | null cURL 选项数组
      */
-    public function toCurlOption(): array {
-        if (!$this->host || !$this->port) return [];
+    public function toCurlOption(): ?array {
+        if (!$this->host || !$this->port) return null;
 
         $proxy = $this->host . ':' . $this->port;
         $options = [
