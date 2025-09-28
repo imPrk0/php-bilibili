@@ -4,11 +4,11 @@
  * @author Prk<code@imprk.me>
  */
 
-use Prk\PHPBilibili\Common\Config;
-use Prk\PHPBilibili\BilibiliClient;
+namespace Examples\common;
+
 use Prk\PHPBilibili\Contracts\WbiStoreInterface;
 
-class WbiStoreExample implements WbiStoreInterface {
+class WbiStore implements WbiStoreInterface {
     /**
      * Wbi Mixin Key 存储文件
      * @author Prk<code@imprk.me>
@@ -52,8 +52,3 @@ class WbiStoreExample implements WbiStoreInterface {
         unlink($this->fileName);
     }
 }
-
-$config = new Config;
-$config->setWbiStore(new WbiStoreExample);
-
-$client = new BilibiliClient($config);

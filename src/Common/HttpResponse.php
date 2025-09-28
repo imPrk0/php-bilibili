@@ -17,6 +17,10 @@ final class HttpResponse {
 
     public function __construct(string $body, int $status) {
         $this->body = $body;
+        if (str_starts_with($body, '{"code":-352,')) {
+            // TODO throw
+        }
+
         $this->status = $status;
     }
 

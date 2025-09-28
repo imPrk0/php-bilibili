@@ -134,9 +134,11 @@ final class BilibiliClient {
 
         if (!empty($this->cookies)) curl_setopt($ch, CURLOPT_COOKIE, $this->cookies);
 
-        $proxyOptions = $this->proxy->toCurlOption();
-        if (!empty($proxyOptions)) curl_setopt_array($ch, $proxyOptions);
-        unset($proxyOptions);
+        if (!empty($this->proxy)) {
+            $proxyOptions = $this->proxy->toCurlOption();
+            if (!empty($proxyOptions)) curl_setopt_array($ch, $proxyOptions);
+            unset($proxyOptions);
+        }
 
         $response = curl_exec($ch);
         $error = curl_error($ch);

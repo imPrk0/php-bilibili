@@ -68,6 +68,9 @@ final class WbiSign {
             if (!empty($mixinKey)) return $mixinKey;
         }
 
-        return (new WbiSignResponse((new BilibiliClient($this->config))->request(new WbiSignRequest)))->getMixinKey();
+        $mixinKey = (new WbiSignResponse((new BilibiliClient($this->config))->request(new WbiSignRequest)))->getMixinKey();
+        if (!empty($this->wbiStore)) $this->wbiStore->set($mixinKey);
+
+        return $mixinKey;
     }
 }

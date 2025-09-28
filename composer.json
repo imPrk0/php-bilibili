@@ -10,6 +10,7 @@
     },
     "autoload-dev": {
         "psr-4": {
+            "Examples\\":  "examples/",
             "Prk\\PHPBilibili\\Tests\\": "tests/"
         }
     },
