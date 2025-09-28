@@ -1,5 +1,5 @@
 <?php
 
 # region snippet
-use Prk\PHPBilibili\BilibiliClient;
+$config->setCookieStore($cookieStore);
 # endregion snippet

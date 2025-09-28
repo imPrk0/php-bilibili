@@ -1,5 +1,5 @@
 <?php
 
 # region snippet
-use Prk\PHPBilibili\BilibiliClient;
+$config->setRewriteHost([]);
 # endregion snippet

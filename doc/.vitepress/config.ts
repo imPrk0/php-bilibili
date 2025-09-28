@@ -59,10 +59,10 @@ export default defineConfig({
                 collapsed: true,
                 items: [
                     { text: '介绍', link: '/client/' },
-                    { text: 'Web 客户端', link: '/client/web' },
-                    { text: 'PC 客户端', link: '/client/electron' },
-                    { text: '手机 APP', link: '/client/app' },
-                    { text: '云视听小电视', link: '/client/tv' }
+                    { text: '🌍 Web 客户端', link: '/client/web' },
+                    { text: '💻 PC 客户端', link: '/client/electron' },
+                    { text: '📱 手机 APP', link: '/client/app' },
+                    { text: '📺 云视听小电视', link: '/client/tv' }
                 ]
             },
             {

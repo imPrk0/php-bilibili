@@ -2,7 +2,6 @@
     "name": "php-bilibili",
     "private": true,
     "type": "module",
-    "main": "index.js",
     "scripts": {
         "doc:dev": "vitepress dev doc --host",
         "doc:build": "vitepress build doc",

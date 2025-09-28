@@ -10,32 +10,28 @@ namespace Prk\PHPBilibili\Contracts;
 
 interface WbiStoreInterface {
     /**
-     * 获取 Wbi 签名 Token
+     * 获取 Wbi 签名 Mixin Key
      * @author Prk<code@imprk.me>
      *
-     * @return string | null 原始 Cookie 串 "a=1; b=2; c=3;"
+     * @return string | null Mixin Key
      */
-    public function get(string $scope): ?string;
+    public function get(): ?string;
 
     /**
-     * 设置 Cookie
+     * 设置 Wbi 签名 Mixin Key
      * @author Prk<code@imprk.me>
      *
-     * @param string $scope 场景区分，默认为 default
-     * @param string $cookie 原始 Cookie
-     * @param integer $ttl 过期时间，单位秒，0 为不过期
+     * @param string $mixinKey Mixin Key
      *
      * @return void 毋需返回任何
      */
-    public function set(string $scope, string $cookie, int $ttl = 0): void;
+    public function set(string $mixinKey): void;
 
     /**
-     * 清理本场景 Cookie
+     * 清理 Wbi 签名 Mixin Key
      * @author Prk<code@imprk.me>
-     *
-     * @param string $scope 场景区分，默认为 default
      *
      * @return void 毋需返回任何
      */
-    public function clear(string $scope): void;
+    public function clear(): void;
 }

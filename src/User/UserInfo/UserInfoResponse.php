@@ -19,6 +19,7 @@ final class UserInfoResponse {
      */
     public function __construct(array $data = []) {
         if (0 != $data['code'] || '0' != $data['message']) {
+            echo json_encode($data) . PHP_EOL;
             exit('throw'); // TODO 创建不同的错误类型
         }
 
